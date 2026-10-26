@@ -1,0 +1,37 @@
+ACCADEMIA DRACONICA — CARTELLA PRIVATA (NON CARICARE SU GITHUB)
+================================================================
+
+Questa cartella contiene i testi in chiaro del corso, la chiave di cifratura e le password degli iscritti.
+Su GitHub va caricata SOLO la cartella  accademia-draconica-SITO.
+
+COME FUNZIONA
+- Lezioni, meditazioni e quiz sono cifrati (AES-256) dentro SITO/vault/vault.json.
+- Chi non ha utente e password vede solo la schermata di presentazione.
+- Il sito non ha un server: la protezione è la cifratura. Nessuno può leggere il corso senza credenziali valide.
+
+AGGIUNGERE UN ISCRITTO (dopo che ha pagato i 5 euro su WhatsApp)
+1. Apri users.txt e aggiungi una riga:   nomeutente:password     (password di almeno 8 caratteri)
+2. Da terminale, in questa cartella:    pip install cryptography   (solo la prima volta)
+                                         python3 build_vault.py
+3. Carica su GitHub la cartella SITO aggiornata (basta il file vault/vault.json).
+4. Manda all'iscritto utente e password (attendi 1-2 minuti che GitHub Pages si aggiorni).
+
+RIMUOVERE UN ISCRITTO
+1. Cancella la sua riga da users.txt
+2. python3 build_vault.py --rotate      (cambia la chiave: chi era già dentro viene scollegato)
+3. Ricarica vault/vault.json su GitHub.
+
+MODIFICARE I TESTI DEL CORSO
+- Modifica content/lessons.js (lezioni) o content/extras.js (meditazioni, draghi, quiz),
+  poi esegui python3 build_vault.py e ricarica vault/vault.json.
+
+ACCOUNT DI PROVA
+- utente: prova     password: 57m3u5rdfv
+- Cancella questa riga da users.txt prima di andare online e ricostruisci con --rotate.
+
+LIMITI DA SAPERE (onestà)
+- Le illustrazioni (cartella assets) e i titoli delle lezioni nella pagina iniziale sono pubblici; il contenuto dei corsi no.
+- Un iscritto può copiare i testi che legge o condividere le sue credenziali: nessun sito statico può impedirlo.
+  Se in futuro vorrai limitare gli accessi per dispositivo, pagamenti automatici o un tuo pannello utenti,
+  serve un servizio con server (es. Memberstack, Gumroad, Teachable o un backend dedicato).
+- Usa password diverse e non banali per ogni iscritto.

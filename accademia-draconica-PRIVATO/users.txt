@@ -1,0 +1,5 @@
+# Un utente per riga:  nomeutente:password   (password di almeno 8 caratteri)
+# Dopo ogni modifica esegui:  python3 build_vault.py
+# Per RIMUOVERE qualcuno: cancella la sua riga ed esegui:  python3 build_vault.py --rotate
+# L'account "prova" serve solo per testare: cancellalo prima di andare online.
+prova:57m3u5rdfv
